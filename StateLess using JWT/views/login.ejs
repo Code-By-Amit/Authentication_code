@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card_title">
+                <h1>Login</h1>
+            </div>
+            <div class="form">
+                <form action="/auth/login" method="post">
+                    <input type="text" name="username" id="username" placeholder="UserName" />
+                    <input type="password" name="password" placeholder="Password" id="password" />
+                    <% if (locals.message) { %>
+                        <p class="error-msg">*<%= message %></p>
+                    <% } %>
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="card_terms">
+                <p>Dont have an Account ?</p>
+                <a href="/signup">Click Here</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
