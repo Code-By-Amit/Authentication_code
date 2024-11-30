@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 const sessionStore = new Map() // Hash Map a Data Structure that Store Data in kay:value pair
 
-function storeUserSession(user) {
-    const sessionId = uuidv4();
-    const payload = {
-        'userId': user._id,
-        'username': user.username,
+function storeUserSession(user) {                       //* Session id ⬇️                                 User data ⬇️
+    const sessionId = uuidv4();                         //* '20d22095-4a82-4d1e-af7d-6c5552ad4e9f' => {   userId: new ObjectId('673f01acad1cde2bf7d16054'),
+    const payload = {                                   //*                                               username: 'Amitsaini',
+        'userId': user._id,                             //*                                               expire: 1732186844558  }
+        'username': user.username,                                                              
         'expire': Date.now() + 30 * 60 * 1000          //* Set Expire Time 30 min. 
     }
     sessionStore.set(sessionId, payload)
@@ -34,9 +34,12 @@ function cleanUpExpiredSessions() {
     })
 }
 
-setInterval(cleanUpExpiredSessions, 30 * 60 * 1000);       //* runs in every 30 min to clean up expired session from server 
+setInterval(cleanUpExpiredSessions, 30 * 60 * 1000);       //* runs in every 30 min to clean up expired session from server(Ram)
 
 export { sessionStore, storeUserSession, cleanUpExpiredSessions, getSessionData, sessionExists, deleteSession }
+
+
+
 
 
 // export const sessionStore = {}  
