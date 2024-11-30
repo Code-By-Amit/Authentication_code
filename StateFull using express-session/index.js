@@ -7,7 +7,7 @@ import { isAuthenticated } from './middlewares/isAuthentiacted.js';
 const app = express();
 const PORT = 3000;
 
-app.use(session({
+app.use(session({                    //* By default, sessions are stored in the server's memory (RAM) using the MemoryStore.In production, you should use a dedicated session store like Redis, MongoDB, or MySQL to manage sessions. 
     name: 'sessionId',                      //* name of cookie to store in client browser
     secret: "SuperMan is my Secret Key",    //* secret key to create a session
     resave: false,                          
