@@ -76,7 +76,7 @@ export async function handleLogout(req, res) {
     try {
         //* Clear the session in cookie and in server.
         const sessionId = req.cookies.sessionId;
-        if (sessionId) {7
+        if (sessionId) {
             console.log(sessionExists(sessionId))
             if (sessionExists(sessionId)) {
                 deleteSession(sessionId)          //* in server
